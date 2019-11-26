@@ -1,0 +1,11 @@
+<ion-modal-view>
+	<ion-header-bar class="bar-royal">
+		<button class="button button-icon icon ion-ios-close-empty" ng-click="closeMap()"></button>
+	 	<h1 class="title">{{'MAP' | translate}}</h1>
+	</ion-header-bar>
+	<ion-content overflow-scroll="true">
+		<yandex-map class="map" center="mapCenter" zoom="mapZoom">
+			<ymap-marker address="{{event.location}}" properties="markerProperties" options="markerOptions"></ymap-marker>
+		</yandex-map>
+	</ion-content>
+</ion-modal-view>

@@ -1,0 +1,27 @@
+<ion-view view-title="{{'EVENTS' | translate}}">
+  <ion-content>
+    <ion-refresher on-refresh="refresh()" pulling-text="{{'REFRESH' | translate}}" pulling-icon="ion-ios-arrow-thin-down" spinner="crescent"></ion-refresher>
+    <ion-list>
+      <ion-list class="item card" ng-repeat="event in events">
+      	<ion-item class="item-avatar">
+      		<img src="{{event.iconUrl}}">
+      		<h2>{{event.title}}</h2>
+      		<p>
+            {{event.starts | dateToISO | date: 'd.M.yyyy'}}
+            <br>
+            {{'STARTS' | translate}} {{event.starts | dateToISO | date: 'H:mm'}}
+            <br>
+            {{'ENDS' | translate}} {{event.ends | dateToISO | date: 'H:mm'}}
+          </p>
+      	</ion-item>
+      	<ion-item class="item item-body">
+      		<img class="full-image" src="{{event.imageUrl}}">
+      		<p>{{event.shortDescription}}</p>
+          <div align="center">
+      		  <a class="button button-royal button-small button-outline" href="#/app/events/{{event.id}}">{{'DETAILS' | translate}}</a>
+          </div>
+      	</ion-item>
+      </ion-list>
+    </ion-list>
+  </ion-content>
+</ion-view>

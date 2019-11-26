@@ -1,0 +1,27 @@
+<ion-view view-title="{{'DETAILS' | translate}}">
+  <ion-content>
+  	<ion-item class="item item-body padding">
+  		<h2 style="font-size: 20px; font-weight: bold;"class="event-title">{{event.title}}</h2>
+	    <img class="full-image" src="{{event.imageUrl}}">
+	    <p class="event-date-and-time">
+        <i class="icon ion-ios-people"></i>
+        {{event.organizer}}
+        <br>
+        <i class="icon ion-ios-clock"></i>
+        {{event.starts | dateToISO | date: 'd.M.yyyy, H:mm'}} - {{event.ends | dateToISO | date: 'H:mm'}}
+        <br>
+        <a ng-click="openMap()"
+          <i class="icon ion-ios-navigate"></i>
+          {{event.location}}
+        </a>
+      </p>
+      <p>
+        {{event.fullDescription}}
+      </p>
+	 </ion-item>
+   <div class="padding">
+    <button class="button button-royal button-block" ng-click="contactOrganizer()">{{'CONTACT_ORGANIZER' | translate}}</button>
+    <button class="button button-royal button-block" ng-click="addToCalendar()">{{'ADD_TO_CALENDAR' | translate}}</button>
+   </div>
+  </ion-content>
+</ion-view>
